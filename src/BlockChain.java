@@ -30,7 +30,6 @@ public class BlockChain {
     public void minePendingTransactions(String miningRewardAdress) {
         Block newBLock = new Block(getLatestBlock().hash);
         newBLock.mineBlock(difficulty);
-       //printing miners and transactions
         System.out.println();
         System.out.print(miningRewardAdress + ": " + pendingTransactions);
         newBLock.setTransactionListInBlock((ArrayList<Transaction>) pendingTransactions.clone());
