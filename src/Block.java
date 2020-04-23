@@ -18,7 +18,7 @@ public class Block {
         String listString = "";
         if(transactionListInBlock != null) {
             for (Transaction transaction : transactionListInBlock) {
-                listString += transaction.toString();
+                listString += transaction.hashTransaction();
             }
         }
         String calculatedhash = StringUtil.applySha256(

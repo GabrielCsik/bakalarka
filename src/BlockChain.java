@@ -35,12 +35,12 @@ public class BlockChain {
         newBLock.setTransactionListInBlock((ArrayList<Transaction>) pendingTransactions.clone());
         blockchain.add(newBLock);
         pendingTransactions.clear();
-        pendingTransactions.add(new Transaction("", miningRewardAdress, miningReward));
+        pendingTransactions.add(new Transaction("CoinBase", miningRewardAdress, miningReward));
     }
 
     public void createTransaction(Transaction transaction) {
         pendingTransactions.add(transaction);
-        System.out.print("T ");
+//        System.out.print(" T");
     }
 
     public int getBalanceOfAddress(String adress) {

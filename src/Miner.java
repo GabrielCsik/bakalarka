@@ -10,7 +10,7 @@ public class Miner extends Thread {
 
     public void minerStart() {
         int i = 0;
-        while (i < 4) {
+        while (i < 100) {
             blockChain.minePendingTransactions(name);
 //            System.out.print(this.name);
             i++;

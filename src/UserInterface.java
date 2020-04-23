@@ -53,9 +53,10 @@ public class UserInterface {
         ArrayList<Miner> miners = (ArrayList<Miner>) createMiners(numOfminers);
 
         users.stream().forEach(p -> p.setUserList(users));
-        System.out.println("Starting");
         for (User user : users) { user.start(); }
+        System.out.println("Started users");
         for (Miner miner : miners) { miner.start(); }
+        System.out.println("Started miners");
 
 
         users.stream().forEach(user -> {

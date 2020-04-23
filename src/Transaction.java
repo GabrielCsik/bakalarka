@@ -34,6 +34,9 @@ public class Transaction {
 
     @Override
     public String toString() {
+        return fromAdress + " " + toAdress + " " + amount;
+    }
+    public String hashTransaction(){
         return fromAdress+toAdress+amount;
     }
 }
