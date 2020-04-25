@@ -3,6 +3,7 @@ public class Miner extends Thread {
     public String name;
     private BlockChain blockChain;
 
+
     public Miner(String name, BlockChain blockChain) {
         this.name = name;
         this.blockChain = blockChain;
@@ -10,7 +11,7 @@ public class Miner extends Thread {
 
     public void minerStart() {
         int i = 0;
-        while (i < 3) {
+        while (true) {
             blockChain.minePendingTransactions(name);
 //            System.out.print(this.name);
             i++;

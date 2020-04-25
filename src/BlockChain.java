@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlockChain {
-
+//    public int counter = 0;
+//    public int numOfTrans = 0;
     public static List<Block> blockchain;
     public ArrayList<Transaction> pendingTransactions;
     public static int difficulty;
@@ -30,8 +31,8 @@ public class BlockChain {
     public void minePendingTransactions(String miningRewardAdress) {
         Block newBLock = new Block(getLatestBlock().hash);
         newBLock.mineBlock(difficulty);
-        System.out.println(miningRewardAdress);
-//        System.out.print(miningRewardAdress + ": " + pendingTransactions);
+//        System.out.println(counter);
+//        System.out.print(miningRewardAdress);
         newBLock.setTransactionListInBlock((ArrayList<Transaction>) pendingTransactions.clone());
         blockchain.add(newBLock);
         pendingTransactions.clear();
@@ -58,6 +59,16 @@ public class BlockChain {
             }
         }
         return balance;
+    }
+    public int getNumofTransactions() {
+        int num = 0;
+        if(blockchain.isEmpty() || blockchain == null) return 0;
+        for (Block block : blockchain) {
+            if (block.transactionListInBlock != null && !block.transactionListInBlock.isEmpty() && block.transactionListInBlock != null) {
+                num += block.transactionListInBlock.size();
+            }
+        }
+        return num;
     }
 
     public static Boolean isChainValid(BlockChain blockChain) {
@@ -93,5 +104,14 @@ public class BlockChain {
 
     public static void setDifficulty(int difficulty) {
         BlockChain.difficulty = difficulty;
+    }
+
+    public int getNumofBlocks() {
+        int num = 0;
+        if(blockchain.isEmpty() || blockchain == null) return 0;
+        for (Block block : blockchain) {
+            num++;
+        }
+        return num;
     }
 }

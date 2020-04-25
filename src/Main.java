@@ -7,6 +7,9 @@ public class Main {
 
         //        BlockChain blockChain = new BlockChain();
         UserInterface userInterface = new UserInterface();
+//        Thread printingHook = new Thread(() -> System.out.println("\nBlocks:" + userInterface.blockChain.getNumofBlocks() +
+//                "\nTransactions: " + userInterface.blockChain.getNumofTransactions()));
+//        Runtime.getRuntime().addShutdownHook(printingHook);
         userInterface.play();
 
 

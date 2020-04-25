@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class UserInterface {
+public class UserInterface{
     BlockChain blockChain = new BlockChain();
     Scanner reader = new Scanner(System.in);
 
@@ -57,24 +57,30 @@ public class UserInterface {
         System.out.println("Started users");
         for (Miner miner : miners) { miner.start(); }
         System.out.println("Started miners");
-
-
-        users.stream().forEach(user -> {
-            try {
-                user.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-        miners.stream().forEach(miner -> {
-            try {
-                miner.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-        miners.stream().forEach(miner -> System.out.println(miner.getMinerName() + " balance(miner): " + blockChain.getBalanceOfAddress(miner.getMinerName())));
-        users.stream().forEach(user -> System.out.println(user.getUserName() + " balance(user): " + blockChain.getBalanceOfAddress(user.getUserName())));
+        try {
+            Thread.sleep(60000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println( "Blocks: "+blockChain.getNumofBlocks());
+        System.out.println( "Transactions: "+blockChain.getNumofTransactions());
+        System.exit(0);
+//        users.stream().forEach(user -> {
+//            try {
+//                user.join();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//        miners.stream().forEach(miner -> {
+//            try {
+//                miner.join();
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//        miners.stream().forEach(miner -> System.out.println(miner.getMinerName() + " balance(miner): " + blockChain.getBalanceOfAddress(miner.getMinerName())));
+//        users.stream().forEach(user -> System.out.println(user.getUserName() + " balance(user): " + blockChain.getBalanceOfAddress(user.getUserName())));
     }
 
 }
