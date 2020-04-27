@@ -32,9 +32,9 @@ public class BlockChain {
 //        newBlock.mineBlock(difficulty);
 //        blockchain.add(newBlock);
 //    }
-    public void minePendingTransactions(String miningRewardAdress) {
+    public void minePendingTransactions(String miningRewardAdress, int minePower) {
         Block newBLock = new Block();
-        newBLock.mineBlock(difficulty);
+        newBLock.mineBlock(difficulty, minePower);
         synchronized (obj) {
             newBLock.setPrevHash(getLatestBlock().hash);
 //        System.out.println(counter);

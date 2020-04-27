@@ -24,16 +24,22 @@ public class Block {
         return StringUtil.applySha256(Long.toString(timeStamp) + Integer.toString(nonce));
     }
 
-    public void mineBlock(int difficulty) {
+    public void mineBlock(int difficulty, int minePower) {
         String target = new String(new char[difficulty]).replace('\0', '0'); //Create a string with difficulty * "0"
-        while(!hash.substring( 0, difficulty).equals(target)) {
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        int i = 0;
+        while (!hash.substring(0, difficulty).equals(target)) {
+            if (i < minePower) {
+                nonce++;
+                hash = calculateHash();
+                i++;
+            } else {
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                i = 0;
             }
-            nonce ++;
-            hash = calculateHash();
         }
 //        System.out.println("Block Mined!!! : " + hash);
     }
