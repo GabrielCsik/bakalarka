@@ -4,10 +4,12 @@ import java.util.List;
 public class BlockChain {
 //    public int counter = 0;
 //    public int numOfTrans = 0;
+    volatile boolean stopAddingTrans = false;
     public static List<Block> blockchain;
     public ArrayList<Transaction> pendingTransactions;
     public static int difficulty;
     public int miningReward = 100;
+    private Object obj = new Object();
 
     public BlockChain() {
         blockchain = new ArrayList<>();
@@ -16,7 +18,9 @@ public class BlockChain {
     }
 
     public Block createGenenisBlock() {
-        return new Block("0");
+        Block genesisBlock = new Block();
+        genesisBlock.setPrevHash("0");
+        return genesisBlock;
     }
 
     public Block getLatestBlock() {
@@ -29,19 +33,24 @@ public class BlockChain {
 //        blockchain.add(newBlock);
 //    }
     public void minePendingTransactions(String miningRewardAdress) {
-        Block newBLock = new Block(getLatestBlock().hash);
+        Block newBLock = new Block();
         newBLock.mineBlock(difficulty);
+        synchronized (obj) {
+            newBLock.setPrevHash(getLatestBlock().hash);
 //        System.out.println(counter);
 //        System.out.print(miningRewardAdress);
-        newBLock.setTransactionListInBlock((ArrayList<Transaction>) pendingTransactions.clone());
-        blockchain.add(newBLock);
-        pendingTransactions.clear();
-        pendingTransactions.add(new Transaction("CoinBase", miningRewardAdress, miningReward));
+            newBLock.setTransactionListInBlock((ArrayList<Transaction>) pendingTransactions.clone());
+            blockchain.add(newBLock);
+            pendingTransactions.clear();
+            pendingTransactions.add(new Transaction("CoinBase", miningRewardAdress, miningReward));
+        }
     }
 
     public void createTransaction(Transaction transaction) {
-        pendingTransactions.add(transaction);
+//        synchronized (obj) {
+            pendingTransactions.add(transaction);
 //        System.out.print(" T");
+//        }
     }
 
     public int getBalanceOfAddress(String adress) {
@@ -88,6 +97,8 @@ public class BlockChain {
             //compare previous hash and registered previous hash
             if (!previousBlock.hash.equals(currentBlock.previousHash)) {
                 System.out.println("Previous Hashes not equal");
+                System.out.println(previousBlock.hash);
+                System.out.println(currentBlock.previousHash);
                 return false;
             }
             if (!currentBlock.hash.substring(0, difficulty).equals(hashTarget)) {

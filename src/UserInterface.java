@@ -58,10 +58,11 @@ public class UserInterface{
         for (Miner miner : miners) { miner.start(); }
         System.out.println("Started miners");
         try {
-            Thread.sleep(60000);
+            Thread.sleep(120000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+//        System.out.println(BlockChain.isChainValid(blockChain));
         System.out.println( "Blocks: "+blockChain.getNumofBlocks());
         System.out.println( "Transactions: "+blockChain.getNumofTransactions());
         System.exit(0);

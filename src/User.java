@@ -18,15 +18,15 @@ public class User extends Thread {
     }
 
     public void createTransaction() {
-        int i = 0;
-        while (i <= 100) {
+//        int i = 0;
+        while (true) {
             try {
                 this.sleep(random.nextInt(10000)+1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             blockChain.createTransaction(new Transaction(this.getUserName(), userList.get(random.nextInt(userList.size()) + 0).getUserName(), random.nextInt(200)));
-            i++;
+//            i++;
         }
     }
 

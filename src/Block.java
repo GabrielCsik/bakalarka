@@ -7,24 +7,21 @@ public class Block {
     public ArrayList<Transaction> transactionListInBlock;
     private long timeStamp; //as number of milliseconds since 1/1/1970.
     private int nonce;
+    private Object obj = new Object();
 
-    public Block(String previousHash) {
-        this.previousHash = previousHash;
+    public Block() {
         this.timeStamp = new Date().getTime();
         this.hash = calculateHash(); //Making sure we do this after we set the other values.
     }
 
     public String calculateHash() {
-        String listString = "";
-        if(transactionListInBlock != null) {
-            for (Transaction transaction : transactionListInBlock) {
-                listString += transaction.hashTransaction();
-            }
-        }
-        String calculatedhash = StringUtil.applySha256(
-                previousHash + Long.toString(timeStamp) + Integer.toString(nonce) + listString
-        );
-        return calculatedhash;
+//        String listString = "";
+//        if(transactionListInBlock != null) {
+//            for (Transaction transaction : transactionListInBlock) {
+//                listString += transaction.hashTransaction();
+//            }
+//        }
+        return StringUtil.applySha256(Long.toString(timeStamp) + Integer.toString(nonce));
     }
 
     public void mineBlock(int difficulty) {
@@ -43,5 +40,9 @@ public class Block {
 
     public void setTransactionListInBlock(ArrayList<Transaction> transactionListInBlock) {
         this.transactionListInBlock = transactionListInBlock;
+    }
+
+    public void setPrevHash(String hash) {
+        previousHash = hash;
     }
 }
