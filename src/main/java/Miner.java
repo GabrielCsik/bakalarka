@@ -15,7 +15,7 @@ public class Miner extends Thread {
     public Miner(String name, BlockChain blockChain) {
         this.name = name;
         this.blockChain = blockChain;
-        miningPower = 100;
+        miningPower = random.nextInt(140)+1;
         generateKeyPair();
     }
 
@@ -56,5 +56,9 @@ public class Miner extends Thread {
 
     public PublicKey getPublicKey() {
         return publicKey;
+    }
+
+    public int getMinerHashPower() {
+        return miningPower;
     }
 }

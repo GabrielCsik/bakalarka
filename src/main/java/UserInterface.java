@@ -60,15 +60,22 @@ public class UserInterface{
         for (Miner miner : miners) { miner.start(); }
         System.out.println("Started miners");
         try {
-            Thread.sleep(20000);
+            Thread.sleep(120000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//        miners.stream().forEach(Thread::stop);
-//        users.stream().forEach(Thread::stop);
-//        System.out.println(BlockChain.isChainValid(blockChain));
-        System.out.println( "Blocks: "+blockChain.getNumofBlocks());
-        System.out.println( "Transactions: "+blockChain.getNumofTransactions());
+        miners.stream().forEach(Thread::stop);
+        users.stream().forEach(Thread::stop);
+        int allMiningPower = 0;
+        int minerCount = 0;
+        for(Miner miner : miners){
+            allMiningPower += miner.getMinerHashPower();
+            minerCount++;
+        }
+        System.out.println("Average mining power: " + allMiningPower/minerCount);
+        System.out.println("Are block and transactions valid: " + BlockChain.isChainValid(blockChain));
+        System.out.println( "Blocks: " + blockChain.getNumofBlocks());
+        System.out.println( "Transactions: "+ blockChain.getNumofTransactions());
 //        users.stream().forEach(p-> System.out.println(p.getUserName() + " " + blockChain.getBalanceOfAddress(p.getPublicKey())));
 //        System.out.println();
 //        miners.stream().forEach(p-> System.out.println(p.getMinerName() + " " + blockChain.getBalanceOfAddress(p.getPublicKey())));
