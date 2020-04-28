@@ -39,6 +39,7 @@ public class StringUtil {
 
     //Verifies a String signature
     public static boolean verifyECDSASig(PublicKey publicKey, String data, byte[] signature) {
+        if(publicKey == null) return true;
         try {
             Signature ecdsaVerify = Signature.getInstance("ECDSA", "BC");
             ecdsaVerify.initVerify(publicKey);
@@ -50,6 +51,8 @@ public class StringUtil {
     }
 
     public static String getStringFromKey(Key key) {
+        if(key == null) return "Coinbase";
         return Base64.getEncoder().encodeToString(key.getEncoded());
     }
+
 }

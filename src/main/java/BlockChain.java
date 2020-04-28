@@ -1,8 +1,9 @@
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BlockChain {
-//    public int counter = 0;
+    //    public int counter = 0;
 //    public int numOfTrans = 0;
     volatile boolean stopAddingTrans = false;
     public static List<Block> blockchain;
@@ -32,7 +33,7 @@ public class BlockChain {
 //        newBlock.mineBlock(difficulty);
 //        blockchain.add(newBlock);
 //    }
-    public void minePendingTransactions(String miningRewardAdress, int minePower) {
+    public void minePendingTransactions(Miner miner, int minePower) {
         Block newBLock = new Block();
         newBLock.mineBlock(difficulty, minePower);
         synchronized (obj) {
@@ -42,36 +43,49 @@ public class BlockChain {
             newBLock.setTransactionListInBlock((ArrayList<Transaction>) pendingTransactions.clone());
             blockchain.add(newBLock);
             pendingTransactions.clear();
-            pendingTransactions.add(new Transaction("CoinBase", miningRewardAdress, miningReward));
+            pendingTransactions.add(new Transaction(miner.getPublicKey(), miningReward));
         }
     }
 
     public void createTransaction(Transaction transaction) {
 //        synchronized (obj) {
-            pendingTransactions.add(transaction);
+        pendingTransactions.add(transaction);
 //        System.out.print(" T");
 //        }
     }
 
-    public int getBalanceOfAddress(String adress) {
+    public int getBalanceOfAddress(PublicKey publicKey) {
         int balance = 0;
         for (Block block : blockchain) {
             if (block.transactionListInBlock != null) {
                 for (Transaction tmp : block.transactionListInBlock) {
-                    if (tmp.getFromAdress().equals(adress)) {
-                        balance = balance - tmp.getAmount();
-                    }
-                    if (tmp.getToAdress().equals(adress)) {
-                        balance = balance + tmp.getAmount();
+                    if (tmp.getFromAdress() == null) {
+                        if (tmp.getToAdress().equals(publicKey)) {
+                            balance = balance + tmp.getAmount();
+                        }
+                    } else if (tmp.getToAdress() == null) {
+                        if (tmp.getFromAdress().equals(tmp.getToAdress())) {
+                            if (tmp.getToAdress().equals(publicKey)) {
+                                balance = balance - tmp.getAmount();
+                            }
+                        }
+                    } else {
+                        if (tmp.getFromAdress().equals(publicKey)) {
+                            balance = balance - tmp.getAmount();
+                        }
+                        if (tmp.getToAdress().equals(publicKey)) {
+                            balance = balance + tmp.getAmount();
+                        }
                     }
                 }
             }
         }
         return balance;
     }
+
     public int getNumofTransactions() {
         int num = 0;
-        if(blockchain.isEmpty() || blockchain == null) return 0;
+        if (blockchain.isEmpty() || blockchain == null) return 0;
         for (Block block : blockchain) {
             if (block.transactionListInBlock != null && !block.transactionListInBlock.isEmpty() && block.transactionListInBlock != null) {
                 num += block.transactionListInBlock.size();
@@ -105,6 +119,12 @@ public class BlockChain {
                 System.out.println("This block hasn't been mined");
                 return false;
             }
+            for (Transaction transaction : currentBlock.transactionListInBlock) {
+                if (!transaction.verifiySignature()) {
+                    System.out.println("Sgnature is not right");
+                    return false;
+                }
+            }
         }
         return true;
     }
@@ -119,7 +139,7 @@ public class BlockChain {
 
     public int getNumofBlocks() {
         int num = 0;
-        if(blockchain.isEmpty() || blockchain == null) return 0;
+        if (blockchain.isEmpty() || blockchain == null) return 0;
         for (Block block : blockchain) {
             num++;
         }

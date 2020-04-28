@@ -1,3 +1,4 @@
+import java.security.Security;
 import java.util.*;
 
 public class UserInterface{
@@ -40,6 +41,7 @@ public class UserInterface{
         return blockChain;
     }
     public void play(){
+        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
         System.out.println("Enter number of users: ");
         int numOfusers = reader.nextInt();
 //        System.out.println(numOfusers);
@@ -58,32 +60,35 @@ public class UserInterface{
         for (Miner miner : miners) { miner.start(); }
         System.out.println("Started miners");
         try {
-            Thread.sleep(30000);
+            Thread.sleep(20000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        miners.stream().forEach(Thread::stop);
-        users.stream().forEach(Thread::stop);
+//        miners.stream().forEach(Thread::stop);
+//        users.stream().forEach(Thread::stop);
 //        System.out.println(BlockChain.isChainValid(blockChain));
         System.out.println( "Blocks: "+blockChain.getNumofBlocks());
         System.out.println( "Transactions: "+blockChain.getNumofTransactions());
+//        users.stream().forEach(p-> System.out.println(p.getUserName() + " " + blockChain.getBalanceOfAddress(p.getPublicKey())));
+//        System.out.println();
+//        miners.stream().forEach(p-> System.out.println(p.getMinerName() + " " + blockChain.getBalanceOfAddress(p.getPublicKey())));
         System.exit(0);
-//        users.stream().forEach(user -> {
-//            try {
-//                user.join();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//        miners.stream().forEach(miner -> {
-//            try {
-//                miner.join();
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//        miners.stream().forEach(miner -> System.out.println(miner.getMinerName() + " balance(miner): " + blockChain.getBalanceOfAddress(miner.getMinerName())));
-//        users.stream().forEach(user -> System.out.println(user.getUserName() + " balance(user): " + blockChain.getBalanceOfAddress(user.getUserName())));
+        //Setup Bouncey castle as a Security Provider
+
+        //Create the new wallets
+//        User user1 = new User("gabi", blockChain);
+//        User user2 = new User("peto", blockChain);
+//        //Test public and private keys
+//        System.out.println("Private and public keys:");
+//        System.out.println(user1.getPublicKey());
+//        System.out.println(user2.getPublicKey());
+//        //Create a test transaction from WalletA to walletB
+//        Transaction transaction = new Transaction(user1.getPublicKey(), user2.getPublicKey(), 5, user1.getPrivateKey());
+//        Transaction transaction2 = new Transaction(user2.getPublicKey(), 5);
+//        //Verify the signature works and verify it from the public key
+////        System.out.println("Is signature verified");
+////        System.out.println(transaction.verifiySignature());
+//        System.out.println(transaction2.toString());
     }
 
 }

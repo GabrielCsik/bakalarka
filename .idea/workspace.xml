@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9f36bccd-2ea3-4cad-9d23-c261db0d9dcf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_47.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/gson_2_6_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_6_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BlockChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlockChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Miner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Miner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StringUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bcpraca1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bcpraca1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bcpraca1/Block.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bcpraca1/BlockChain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bcpraca1/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bcpraca1/Miner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bcpraca1/StringUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bcpraca1/Transaction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bcpraca1/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bcpraca1/UserInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BlockChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BlockChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Miner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Miner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,10 +91,10 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -126,11 +161,30 @@
       <workItem from="1587981145801" duration="318000" />
       <workItem from="1587986535488" duration="62000" />
       <workItem from="1587990023303" duration="5079000" />
+      <workItem from="1588005290506" duration="8567000" />
+      <workItem from="1588018854506" duration="2165000" />
+      <workItem from="1588021141176" duration="52000" />
+      <workItem from="1588021952632" duration="176000" />
+      <workItem from="1588026853542" duration="17000" />
+      <workItem from="1588050039494" duration="1267000" />
+      <workItem from="1588070285415" duration="395000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added sleep to mineBlock" />
@@ -146,10 +200,15 @@
       <screen x="1920" y="107" width="1920" height="1040" />
     </state>
     <state x="2334" y="282" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.107.1920.1040@1920.107.1920.1040" timestamp="1585868381313" />
-    <state x="2332" y="316" key="#com.intellij.ide.util.MemberChooser" timestamp="1586121062621">
-      <screen x="1920" y="107" width="1920" height="1040" />
+    <state x="2332" y="209" key="#com.intellij.ide.util.MemberChooser" timestamp="1588015857205">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2332" y="209" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588015857205" />
     <state x="2332" y="316" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.107.1920.1040@1920.107.1920.1040" timestamp="1586121062621" />
+    <state x="2510" y="209" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1588012122112">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2510" y="209" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588012122112" />
     <state x="2435" y="107" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586010589147">
       <screen x="1920" y="107" width="1920" height="1040" />
     </state>
@@ -168,32 +227,32 @@
     <state x="271" y="245" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587986594879" />
     <state x="2146" y="265" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587736985369" />
     <state x="2146" y="372" key="FileChooserDialogImpl/0.0.1920.1040/1920.107.1920.1040@1920.107.1920.1040" timestamp="1586108463623" />
-    <state width="1877" height="353" key="GridCell.Tab.0.bottom" timestamp="1587995922547">
+    <state width="1877" height="353" key="GridCell.Tab.0.bottom" timestamp="1588051306403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587995922547" />
-    <state width="1877" height="353" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587981463830" />
+    <state width="1877" height="353" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588051306403" />
+    <state width="1877" height="353" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588021022353" />
     <state width="1554" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.107.1920.1040@0.0.1920.1040" timestamp="1586297927252" />
     <state width="1877" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.107.1920.1040@1920.107.1920.1040" timestamp="1586214599303" />
-    <state width="1877" height="353" key="GridCell.Tab.0.center" timestamp="1587995922546">
+    <state width="1877" height="353" key="GridCell.Tab.0.center" timestamp="1588051306402">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587995922546" />
-    <state width="1877" height="353" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587981463830" />
+    <state width="1877" height="353" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588051306402" />
+    <state width="1877" height="353" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588021022353" />
     <state width="1554" height="275" key="GridCell.Tab.0.center/0.0.1920.1040/1920.107.1920.1040@0.0.1920.1040" timestamp="1586297927251" />
     <state width="1877" height="275" key="GridCell.Tab.0.center/0.0.1920.1040/1920.107.1920.1040@1920.107.1920.1040" timestamp="1586214599302" />
-    <state width="1877" height="353" key="GridCell.Tab.0.left" timestamp="1587995922546">
+    <state width="1877" height="353" key="GridCell.Tab.0.left" timestamp="1588051306402">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587995922546" />
-    <state width="1877" height="353" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587981463830" />
+    <state width="1877" height="353" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588051306402" />
+    <state width="1877" height="353" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588021022353" />
     <state width="1554" height="275" key="GridCell.Tab.0.left/0.0.1920.1040/1920.107.1920.1040@0.0.1920.1040" timestamp="1586297927251" />
     <state width="1877" height="275" key="GridCell.Tab.0.left/0.0.1920.1040/1920.107.1920.1040@1920.107.1920.1040" timestamp="1586214599302" />
-    <state width="1877" height="353" key="GridCell.Tab.0.right" timestamp="1587995922547">
+    <state width="1877" height="353" key="GridCell.Tab.0.right" timestamp="1588051306403">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="353" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587995922547" />
-    <state width="1877" height="353" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587981463830" />
+    <state width="1877" height="353" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1588051306403" />
+    <state width="1877" height="353" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588021022353" />
     <state width="1554" height="275" key="GridCell.Tab.0.right/0.0.1920.1040/1920.107.1920.1040@0.0.1920.1040" timestamp="1586297927251" />
     <state width="1877" height="275" key="GridCell.Tab.0.right/0.0.1920.1040/1920.107.1920.1040@1920.107.1920.1040" timestamp="1586214599303" />
     <state width="1877" height="347" key="GridCell.Tab.1.bottom" timestamp="1586121559639">
@@ -212,10 +271,10 @@
       <screen x="1920" y="107" width="1920" height="1040" />
     </state>
     <state width="1877" height="347" key="GridCell.Tab.1.right/0.0.1920.1040/1920.107.1920.1040@1920.107.1920.1040" timestamp="1586121559639" />
-    <state x="2365" y="55" key="SettingsEditor" timestamp="1587739601156">
+    <state x="2365" y="55" key="SettingsEditor" timestamp="1588012674021">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2365" y="55" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1587739601156" />
+    <state x="2365" y="55" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1588012674021" />
     <state x="2365" y="162" key="SettingsEditor/0.0.1920.1040/1920.107.1920.1040@1920.107.1920.1040" timestamp="1586108502174" />
     <state x="2012" y="199" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585859899417">
       <screen x="1920" y="107" width="1920" height="1040" />
