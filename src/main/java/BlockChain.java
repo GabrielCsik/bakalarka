@@ -36,10 +36,12 @@ public class BlockChain {
     public void minePendingTransactions(Miner miner, int minePower) {
         Block newBLock = new Block();
         newBLock.mineBlock(difficulty, minePower);
+
         synchronized (obj) {
             newBLock.setPrevHash(getLatestBlock().hash);
 //        System.out.println(counter);
-//        System.out.print(miningRewardAdress);
+//            System.out.println();
+//            System.out.print(miner.name + ": " + pendingTransactions);
             newBLock.setTransactionListInBlock((ArrayList<Transaction>) pendingTransactions.clone());
             blockchain.add(newBLock);
             pendingTransactions.clear();
@@ -48,10 +50,8 @@ public class BlockChain {
     }
 
     public void createTransaction(Transaction transaction) {
-//        synchronized (obj) {
-        pendingTransactions.add(transaction);
+            pendingTransactions.add(transaction);
 //        System.out.print(" T");
-//        }
     }
 
     public int getBalanceOfAddress(PublicKey publicKey) {
@@ -119,7 +119,9 @@ public class BlockChain {
                 System.out.println("This block hasn't been mined");
                 return false;
             }
+
             for (Transaction transaction : currentBlock.transactionListInBlock) {
+                if (transaction == null) continue;
                 if (!transaction.verifiySignature()) {
                     System.out.println("Sgnature is not right");
                     return false;

@@ -1,4 +1,5 @@
 import java.security.Security;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class UserInterface{
@@ -51,6 +52,8 @@ public class UserInterface{
         int numOfminers = reader.nextInt();
         System.out.println("Enter difficulty: ");
         blockChain.setDifficulty(reader.nextInt());
+        System.out.println("Enter time of running in seconds: ");
+        float runTime = reader.nextInt();
 //        System.out.println(numOfminers);
         ArrayList<Miner> miners = (ArrayList<Miner>) createMiners(numOfminers);
 
@@ -60,26 +63,31 @@ public class UserInterface{
         for (Miner miner : miners) { miner.start(); }
         System.out.println("Started miners");
         try {
-            Thread.sleep(120000);
+            Thread.sleep((int) runTime *1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         miners.stream().forEach(Thread::stop);
         users.stream().forEach(Thread::stop);
         int allMiningPower = 0;
-        int minerCount = 0;
+        float minerCount = 0;
         for(Miner miner : miners){
             allMiningPower += miner.getMinerHashPower();
             minerCount++;
         }
-        System.out.println("Average mining power: " + allMiningPower/minerCount);
-        System.out.println("Are block and transactions valid: " + BlockChain.isChainValid(blockChain));
-        System.out.println( "Blocks: " + blockChain.getNumofBlocks());
-        System.out.println( "Transactions: "+ blockChain.getNumofTransactions());
+        DecimalFormat df = new DecimalFormat("#.###");
+        System.out.println("****************************************************");
+        System.out.println("Average mining power: " + df.format(allMiningPower/minerCount));
+        System.out.println("Is the chain valid: " + BlockChain.isChainValid(blockChain));
+        System.out.println( "Number of Blocks in Blockchain: "+blockChain.getNumofBlocks());
+        System.out.println( "Number of Transactions in Blockchain: "+blockChain.getNumofTransactions());
+        System.out.println("Number of Blocks/second: " + df.format(blockChain.getNumofBlocks()/runTime));
+        System.out.println("Number of Transaction/second: " + df.format(blockChain.getNumofTransactions()/runTime));
+        System.out.println("****************************************************");
+        System.exit(0);
 //        users.stream().forEach(p-> System.out.println(p.getUserName() + " " + blockChain.getBalanceOfAddress(p.getPublicKey())));
 //        System.out.println();
 //        miners.stream().forEach(p-> System.out.println(p.getMinerName() + " " + blockChain.getBalanceOfAddress(p.getPublicKey())));
-        System.exit(0);
         //Setup Bouncey castle as a Security Provider
 
         //Create the new wallets

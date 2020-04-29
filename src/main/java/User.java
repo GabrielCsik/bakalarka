@@ -9,6 +9,7 @@ public class User extends Thread {
     private BlockChain blockChain;
     private List<User> userList;
     private Random random = new Random();
+    private Object obj = new Object();
 
     private PrivateKey privateKey;
     private PublicKey publicKey;
@@ -31,8 +32,9 @@ public class User extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            blockChain.createTransaction(new Transaction(this.publicKey, userList.get(random.nextInt(userList.size()) + 0).getPublicKey(), random.nextInt(10000), privateKey));
+                blockChain.createTransaction(new Transaction(this.publicKey, userList.get(random.nextInt(userList.size()-1)).getPublicKey(), random.nextInt(1000)+1, privateKey));
 //            i++;
+
         }
     }
 

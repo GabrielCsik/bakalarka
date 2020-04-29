@@ -64,15 +64,12 @@ public class Transaction {
     //Signs all the data we dont wish to be tampered with.
     public void generateSignature(PrivateKey privateKey) {
         String data;
-        if (fromAdress == null){
-            data = StringUtil.getStringFromKey(toAdress) + Float.toString(amount);
-        }else{
-            data = StringUtil.getStringFromKey(fromAdress) + StringUtil.getStringFromKey(toAdress) + Float.toString(amount);
-        }
+        data = StringUtil.getStringFromKey(fromAdress) + StringUtil.getStringFromKey(toAdress) + Float.toString(amount);
         signature = StringUtil.applyECDSASig(privateKey,data);
     }
     //Verifies the data we signed hasnt been tampered with
     public boolean verifiySignature() {
+        if(this.signature == null || this.fromAdress == null) return true;
         String data = StringUtil.getStringFromKey(fromAdress) + StringUtil.getStringFromKey(toAdress) + Float.toString(amount)	;
         return StringUtil.verifyECDSASig(fromAdress, data, signature);
     }
